@@ -1,54 +1,24 @@
-import {View, Text} from 'react-native';
-import React, {useEffect} from 'react';
-import {
-  myFetchGetRequest,
-  myFetchPostRequest,
-  myFetchPutRequest,
-  myFetchDeleteRequest,
-} from './src/screens/MyFetchApiRequests';
-import {
-  myAxiosGetRequest,
-  myAxiosPostRequest,
-  myAxiosPutRequest,
-} from './src/screens/MyAxiosRequests';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native'; 
+import { createStackNavigator } from '@react-navigation/stack'; 
+import ApiTask from './src/screens/ApiTask';
+import IDScreen from './src/screens/IDScreen';
+import ApiTask2 from './src/screens/ApiTask2';
+import IDScreen2 from './src/screens/IDScreen2';
+
+const Stack = createStackNavigator(); 
 
 const App = () => {
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const getData = async () => {
-    // Uncomment to use fetch request
-    // const data = {
-    //   title: 'abacgddba',
-    //   body: 'hekalsdjk',
-    //   userId: 1,
-    // };
-    // const res = await myFetchPutRequest(data);
-    // console.log("data", res);
-
-    // Uncomment to use axios GET request
-    // await myAxiosGetRequest()
-    //   .then(res => {
-    //     console.log(res);
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //   });
-
-    // Use axios POST request
-    // await myAxiosPostRequest({ title: "ssdf", dec: "hdhjk", id: 12 })
-    //   .then(res => console.log(res))
-    //   .catch(error => console.log(error));
-    await myAxiosPutRequest(100, {title: 'ssdf', dec: 'hdhjk', id: 12})
-      .then(res => console.log(res))
-      .catch(error => console.log(error));
-  };
-
   return (
-    <View>
-      <Text>App</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="ApiTask2">
+      <Stack.Screen name="ApiTask2" component={ApiTask2} />
+        <Stack.Screen name="ApiTask" component={ApiTask} />
+        <Stack.Screen name="IDScreen" component={IDScreen} />
+        <Stack.Screen name="IDScreen2" component={IDScreen2} />
+     
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
