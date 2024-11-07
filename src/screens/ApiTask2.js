@@ -5,7 +5,7 @@ import {
   FlatList,
   Image,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
@@ -55,15 +55,19 @@ const ApiTask2 = ({navigation}) => {
     fetchData();
   }, []);
 
-  const navigationFunction=item=>{
-    navigation.navigate('IDScreen2',{property_id:item.property_id})
-
-
-  }
+  const navigationFunction = item => {
+    navigation.navigate('IDScreen2', {item: item});
+  };
   const renderData = ({item}) => {
     return (
-    
-      <TouchableOpacity onPress={()=>navigationFunction(item)} style={{backgroundColor:"lightblue",marginBottom:20,alignItems:"center",justifyContent:"center"}}>
+      <TouchableOpacity
+        onPress={() => navigationFunction(item)}
+        style={{
+          backgroundColor: 'lightblue',
+          marginBottom: 20,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
         <Image
           source={{uri: item.images[0]}}
           style={{
@@ -93,8 +97,7 @@ const ApiTask2 = ({navigation}) => {
           }}>
           Price:{item.price}
         </Text>
-        </TouchableOpacity>
-
+      </TouchableOpacity>
     );
   };
   console.log('responsedata', data);
