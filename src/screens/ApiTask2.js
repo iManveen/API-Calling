@@ -58,10 +58,14 @@ const ApiTask2 = ({navigation}) => {
   const navigationFunction = item => {
     navigation.navigate('IDScreen2', {item: item});
   };
-  const renderData = ({item}) => {
+  const renderData = ({item, index}) => {
+    console.log('renderDatat', index, item);
+    
     return (
       <TouchableOpacity
-        onPress={() => navigationFunction(item)}
+        onPress={() => {
+          navigation.navigate('IDScreen2', {item: item, index: index});
+        }}
         style={{
           backgroundColor: 'lightblue',
           marginBottom: 20,
