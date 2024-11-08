@@ -3,7 +3,7 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useRef } from 'react'
 
-const useRefDemo = () => {
+const UseRefDemo = () => {
   // Creating a ref using useRef
   const inputRef = useRef();
 
@@ -24,6 +24,6 @@ const useRefDemo = () => {
   )
 }
 
-export default useRefDemo
+export default UseRefDemo
 
 const styles = StyleSheet.create({})

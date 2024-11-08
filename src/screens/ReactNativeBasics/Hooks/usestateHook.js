@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 
-const useStateHook = () => {
+const UseStateHook = () => {
     const [value, setValue] = useState(0)
     
     const increaseCount = () => {
@@ -18,7 +18,7 @@ const useStateHook = () => {
     )
 }
 
-export default useStateHook
+export default UseStateHook
 
 const styles = StyleSheet.create({
     container: {

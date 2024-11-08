@@ -6,7 +6,7 @@ let x="Hello how are you"
 
 export const MyContext=createContext();
 
-const useContextHook = () => {
+const UseContextHook = () => {
   return (
     <MyContext.Provider value={x}>
     <View>
@@ -17,6 +17,6 @@ const useContextHook = () => {
   )
 }
 
-export default useContextHook
+export default UseContextHook
 
 const styles = StyleSheet.create({})

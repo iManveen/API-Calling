@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { View, Text } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 
-const useFocusScreen = () => {
+const UseFocusScreen = () => {
   const [message, setMessage] = useState('');
 
   useFocusEffect(
@@ -24,4 +24,4 @@ const useFocusScreen = () => {
   );
 };
 
-export default useFocusScreen;
+export default UseFocusScreen;

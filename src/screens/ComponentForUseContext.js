@@ -1,16 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React, { useContext } from 'react'
-import { MyContext } from './ReactNativeBasics/Hooks/useContextHook'
+import {StyleSheet, Text, View} from 'react-native';
+import React, {useContext} from 'react';
+import {MyContext} from './ReactNativeBasics/Hooks/UseContextHook';
 
 const ComponentForUseContext = () => {
-    const values=useContext(MyContext)
+  const values = useContext(MyContext);
   return (
     <View>
       <Text>ComponentForUseContext {values}</Text>
     </View>
-  )
-}
+  );
+};
 
-export default ComponentForUseContext
+export default ComponentForUseContext;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

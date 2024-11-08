@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
-const useEffectHook = () => {
+const UseEffectHook2 = () => {
     const [value, setValue] = useState(0)
     const [value1, setValue1] = useState(0)
     
@@ -40,7 +40,7 @@ const useEffectHook = () => {
   )
 }
 
-export default useEffectHook
+export default UseEffectHook2
 
 const styles = StyleSheet.create({
     countText:{
