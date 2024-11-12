@@ -96,10 +96,11 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+let names = [];
 const AsyncThunkComplete = () => {
   const [data, setData] = useState('');
-  const  names=[]
+  const [name,setName]=useState('')
+
 
   const saveData = async () => {
     names.push(data)
@@ -112,9 +113,11 @@ const AsyncThunkComplete = () => {
   const getData = async () => {
     try {
       const name = await AsyncStorage.getItem('DATA');
-      console.log('NAME',+ JSON.parse(name));
+      setName(name)
+      
     } catch (e) {}
   };
+  console.log('NAME' + name);
 
   return (
     <View style={styles.container}>

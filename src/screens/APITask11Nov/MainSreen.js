@@ -1,7 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet, FlatList, Image} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  FlatList,
+  Image,
+} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {FetchApi} from './FetchApi';
+import {deleteApi} from './DeleteApi';
 
 const MainScreen = () => {
   const [fList, setfList] = useState([]);
@@ -12,10 +20,9 @@ const MainScreen = () => {
     dispatch(FetchApi());
   }, [dispatch]);
 
-
   const renderData = ({item}) => {
     return (
-      <View style={{alignItems: 'center', marginBottom: 20}}>
+      <TouchableOpacity style={{alignItems: 'center', marginBottom: 20}}>
         <Image source={{uri: item.image}} style={styles.apiImage} />
 
         <Text
@@ -27,18 +34,31 @@ const MainScreen = () => {
           }}>
           {item.search_name}
         </Text>
-        <TouchableOpacity style={styles.deleteButton}>
-          <Text style={styles.deleteButtonText}>Delete</Text>
+        <Text
+          style={{
+            fontSize: 18,
+            textAlign: 'center',
+            fontWeight: 500,
+            marginTop: 20,
+          }}>
+          {item.search_id}
+        </Text>
+        <TouchableOpacity
+          onPress={() => {
+            dispatch(deleteApi(item.search_id));
+          }}
+          style={styles.deleteButton}>
+          <Text style={styles.deleteButtonText}>Deletes</Text>
         </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
     );
   };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button}>
+      {/* <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Call API</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <FlatList data={products?.product?.data} renderItem={renderData} />
     </View>
   );
@@ -69,7 +89,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 15,
     borderRadius: 5,
-    marginTop:10,
+    marginTop: 10,
   },
   deleteButtonText: {
     color: '#fff',
