@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "141425214846",
+    "project_id": "react-native-push-notifi-33bce",
+    "storage_bucket": "react-native-push-notifi-33bce.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141425214846:android:5436701d9a4dae89b19f2f",
+        "android_client_info": {
+          "package_name": "com.apicallsrn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNKQtuPxXZzzDUB6Fiv6WzEcW-NkaRj3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

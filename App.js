@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import ApiTask from './src/screens/ApiTask';
@@ -33,15 +33,35 @@ import AsyncThunkComplete from './src/screens/ReactNativeBasics/Async Storage/As
 import AsyncStorageComplete from './src/screens/ReactNativeBasics/Async Storage/AsyncStorageComplete';
 import MainScreen from './src/screens/APITask11Nov/MainSreen';
 import store, {persistor} from './src/screens/APITask11Nov/Store';
+import LoginScreen from './src/screens/Firebase/Login/Login';
+import EmailNavigation from './src/screens/EmailNavigation';
+import HomeNotifi from './src/screens/NotificationScreen/HomeNotifi';
+import NotificationScreen from './src/screens/NotificationScreen';
 
 const Stack = createStackNavigator();
 
 const App = () => {
+  // const [fcmToken, setFcmToken] = useState(null);
+
+  // useEffect(() => {
+  //   console.log('this is my fcm token', fcmToken);
+  // }, [fcmToken]);
+
+  // const checkFcm = async () => {
+  //   try {
+  //     const fcm = await messaging().getToken();
+  //     setFcmToken(fcm);
+  //   } catch (error) {}
+  // };
+  // useEffect(() => {
+  //   checkFcm();
+  // });
+
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="MainScreen">
+          <Stack.Navigator initialRouteName="HomeNotifi">
             <Stack.Screen name="Hooks" component={Hooks} />
             <Stack.Screen name="ApiTask2" component={ApiTask2} />
             <Stack.Screen name="ApiTask" component={ApiTask} />
@@ -79,6 +99,13 @@ const App = () => {
               component={AsyncThunkComplete}
             />
             <Stack.Screen name="MainScreen" component={MainScreen} />
+            <Stack.Screen name="LoginScreen" component={LoginScreen} />
+            <Stack.Screen name="EmailNavigation" component={EmailNavigation} />
+            <Stack.Screen name="HomeNotifi" component={HomeNotifi} />
+            <Stack.Screen
+              name="NotificationScreen"
+              component={NotificationScreen}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </PersistGate>
